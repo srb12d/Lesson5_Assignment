@@ -44,8 +44,18 @@ function addGameInfo() {
   for (var i = 0; i < 31; i++) {
     var date = i+1;
     var tableCell = document.getElementById("08-" + date);
-    paragraphs = tableCell.ggetElementsByTagName("p");
+    paragraphs = tableCell.getElementsByTagName("p");
     paragraphs[1].innerHTML += opponents[i];
+    
+    if (gameLocation[i] === "away") {
+      paragraphs[1].innerHTML = "@ ";
+      paragraphs[1].innerHTML += opponents[i];
+    }//end of if
+    else if (gameLocation[i] === "home") {
+      paragraphs[1].innerHTML = "vs ";
+      paragraphs[1].innerHTML += opponents[i];
+    }//end of else if
+    
   }//end of for loop
 }// end of function
 
